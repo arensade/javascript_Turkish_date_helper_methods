@@ -1,11 +1,11 @@
-class HelpersDate {
-    getNextMonth = (monthAfter,startMonthAfter="dec 01, 2017",lang='tr-TR') => {
+class DateConverter {
+    getNextMonth = (monthAfter,startMonthAfter="dec 01, 2017",dateFormat='long',lang='tr-TR') => {
         let monthList = [];
         let date = new Date(startMonthAfter);
         for (let i = 0; i < monthAfter; i++) {
             date.setMonth(date.getMonth() + 1);
             let val = date.toLocaleString(lang, {
-                month: 'long',
+                month: dateFormat,
             });
             monthList.push({val: val, text: val});
         }
@@ -21,4 +21,4 @@ class HelpersDate {
     }
 }
 
-export default HelpersDate;
+export default DateConverter;
