@@ -12,10 +12,15 @@ class DateConverter {
         return monthList;
     };
 
-    getBetweenYears = (startYear, endYear) => {
+    getBetweenYears = (startYear, endYear,sort='asc') => {
         let yearSelectBoxObj = [];
         for (let i = startYear; i <= endYear; i++) {
-            yearSelectBoxObj.push({val: i, text: i});
+            if(sort==='asc'){
+                yearSelectBoxObj.push({val: i, text: i});
+            }else{
+                yearSelectBoxObj.unshift({val: i, text: i});
+
+            }
         }
         return yearSelectBoxObj;
     }
